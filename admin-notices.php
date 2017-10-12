@@ -32,6 +32,11 @@ final class NTFTHP_Admin_Suggestions {
 			'desc' => 'Useful statistics about the server OS, CPU, RAM, load average, memory usage, IP address, hostname, timezone, disk space, PHP, MySQL, caches, etc.',
 			'filename' => 'server-status.php',
 		),
+		'duplicate-post-littlebizzy' => array(
+			'name' => 'Duplicate Post',
+			'desc' => 'Easily duplicate (clone) any blog post, custom post, or page in WordPress which are then saved in Draft mode, saving you tons of time and headache.',
+			'filename' => 'duplicate-post.php',
+		),
 		'remove-query-strings-littlebizzy' => array(
 			'name' => 'Remove Query Strings',
 			'desc' => 'Removes all query strings from static resources meaning that proxy servers and beyond can better cache your site content (plus, better SEO scores).',
