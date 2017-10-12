@@ -4,9 +4,11 @@ Contributors: littlebizzy
 Tags: 404, homepage, home, not found, errors, page, missing, 301, redirect, htaccess
 Requires at least: 4.4
 Tested up to: 4.8
-Stable tag: 1.0.4
-License: GPL3
+Requires PHP: 7.0
+Stable tag: 1.0.5
+License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Prefix: NTFTHP
 
 Redirects all 404 (Not Found) errors to the homepage for a better user experience, less abuse from bots, and 100% elimination of Google GSC warnings.
 
@@ -80,6 +82,9 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 
 == Changelog ==
 
+= 1.0.5 =
+* updated recommended plugins
+
 = 1.0.4 =
 * minor code tweaks
 
@@ -93,5 +98,5 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 = 1.0.1 =
 * updated plugin meta
 
-= 1.0 =
+= 1.0.0 =
 * initial release
