@@ -3,11 +3,12 @@
 Plugin Name: 404 To Homepage
 Plugin URI: https://www.littlebizzy.com/plugins/404-to-homepage
 Description: Redirects all 404 (Not Found) errors to the homepage for a better user experience, less abuse from bots, and 100% elimination of Google GSC warnings.
-Version: 1.0.4
+Version: 1.0.5
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
-License: GPL3
+License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Prefix: NTFTHP
 */
 
 
