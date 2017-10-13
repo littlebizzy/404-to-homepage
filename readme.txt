@@ -14,7 +14,7 @@ Redirects all 404 (Not Found) errors to the homepage for a better user experienc
 
 == Description ==
 
-> Redirects all 404 (Not Found) errors to the homepage for a better user experience, less abuse from bots, and 100% elimination of Google GSC warnings.
+Redirects all 404 (Not Found) errors to the homepage for a better user experience, less abuse from bots, and 100% elimination of Google GSC warnings.
 
 404 To Homepage is a simple WordPress plugin for redirecting all 404 "Not Found" errors to the homepage. The reason for doing this is to avoid user confusion (or lost leads), and to avoid abuse causes by bots that ping your site with non-existent URLs which can negatively effect search engine indexing. Additionally, it can totally eliminate the warnings created in Google GSC (Webmasters) in regard to 404 errors that begin piling up over time, which quite often are not even the fault of your website.
 
@@ -22,48 +22,64 @@ It should be noted, however, that this method is not recommended for all website
 
 Unlike other 404 redirect plugins, 404 To Homepage "removes" any pre-existing HTTP headers, and executes ONLY a 301 redirect header pointed at the site's homepage. In other words, it does not allow any "previous" headers to be sent in order to avoid confusing browsers or Google bots. (NOTE: while any previous headers sent by WordPress/PHP engine are ignored, it's possible for your server i.e. Apache or Nginx to override things with header rules of their own... please check to ensure no conflicts.)
 
-## Compatibility
+This is a version that uses the early WP hook 'pre_handle_404' to avoid unnecessary code execution (posts types creation and taxonomies). But this hook is available only from WP 4.5.0, so the plugin declares also the 'wp' standard hook just in case for older versions.
 
-* __OS:__ Linux
-* __SERVER:__ Apache, Nginx
-* __PHP:__ 5.5+
-* __DATABASE:__ MySQL
+Before to do the redirection to the homepage, there is a procedure that removes any existing previous header, so only 301 header will be sent in response to the HTTP request. You can see the headers in chrome from Network tab and checking preserve log. For Firefox you can use the Live HTTP headers addon, for example.
 
-### Plugin Features
+#### Compatibility ####
 
-* __SETTINGS:__ None
-* __MUST-USE:__ Supported
-* __MULTI-SITE:__ Support unknown
-* __TRANSIENTS:__ None
-* __WP_OPTIONS:__ None
-* __LOCALIZATION:__ None
-* __UNINSTALL:__ Removes plugin files only (no stored data exists)
+This plugin has been designed for use on LEMP (Nginx) web servers with PHP 7.0 and MySQL 5.7 to achieve best performance. All of our plugins are meant for single site WordPress installations only; for both performance and security reasons, we highly recommend against using WordPress Multisite for the vast majority of projects.
 
-#### Future Goals
+#### Plugin Features ####
 
-* Localization (translation support)
-* HTTP header experimentation
-* More features (based on user suggestions)
-* Code maintenance/improvements
+* Settings Page: No
+* PRO Version Available: No
+* Includes Media: No
+* Includes CSS: No
+* Database Storage: No
+  * Transients: No
+  * Options: Yes
+* Database Queries: None
+* Must-Use Support: Yes
+* Multisite Support: No
+* Uninstalls Data: Yes
 
-#### Code Inspiration
+#### Code Inspiration ####
+
+This plugin was partially inspired either in "code or concept" by the open-source software and discussions mentioned below:
 
 * [All 404 Redirect to Homepage](https://wordpress.org/plugins/all-404-redirect-to-homepage/)
 * [404 Redirection](https://wordpress.org/plugins/404-redirection/)
 * [Redirect 404 Error Page to Homepage](https://wordpress.org/plugins/redirect-404-error-page-to-homepage/)
 
-#### Extra Notes
+#### Recommended Plugins ####
 
-This is a version that uses the early WP hook 'pre_handle_404' to avoid unnecessary code execution (posts types creation and taxonomies). But this hook is available only from WP 4.5.0, so the plugin declares also the 'wp' standard hook just in case for older versions.
+We invite you to check out a few other related free plugins that our team has also produced that you may find especially useful:
 
-Before to do the redirection to the homepage, there is a procedure that removes any existing previous header, so only 301 header will be sent in response to the HTTP request. You can see the headers in chrome from Network tab and checking preserve log. For Firefox you can use the Live HTTP headers addon, for example.
+* [Remove Query Strings](https://wordpress.org/plugins/remove-query-strings-littlebizzy/)
+* [Remove Category Base](https://wordpress.org/plugins/remove-category-base-littlebizzy/)
+* [Force HTTPS](https://wordpress.org/plugins/force-https-littlebizzy/)
+* [Disable Emojis](https://wordpress.org/plugins/disable-emojis-littlebizzy/)
+* [Server Status](https://wordpress.org/plugins/server-status-littlebizzy/)
 
-*We released this plugin in response to our managed hosting clients asking for better access to their server environment, and our primary goal will likely remain supporting that purpose. Although we are 100% open to fielding requests from the WordPress community, we kindly ask that you consider all of the above mentioned goals before leaving reviews of this plugin, thanks!*
+#### Special Thanks ####
+
+We thank the following groups for their generous contributions to the WordPress community which have particularly benefited us in developing our own free plugins and paid services:
+
+* [Automattic](https://automattic.com)
+* [Delicious Brains](https://deliciousbrains.com)
+* [Roots](https://roots.io)
+* [rtCamp](https://rtcamp.com)
+* [WP Tavern](https://wptavern.com)
+
+#### Disclaimer ####
+
+We released this plugin in response to our managed hosting clients asking for better access to their server, and our primary goal will remain supporting that purpose. Although we are 100% open to fielding requests from the WordPress community, we kindly ask that you keep the above mentioned goals in mind, thanks!
 
 == Installation ==
 
-1. Upload the plugin files to `/wp-content/plugins/404-to-homepage-littlebizzy`
-2. Activate the plugin through the 'Plugins' screen in WordPress
+1. Upload to `/wp-content/plugins/404-to-homepage-littlebizzy`
+2. Activate via WP Admin > Plugins
 3. Test the plugin is working correctly by loading a non-existent URL of your website
 
 == FAQ ==
@@ -82,6 +98,9 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 
 == Changelog ==
 
+= 1.0.6 =
+* added filter to "skip" WP Admin, cron, and XML-RPC requests
+
 = 1.0.5 =
 * updated recommended plugins
 
@@ -89,7 +108,7 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 * minor code tweaks
 
 = 1.0.3 =
-* recommended plugins
+* added recommended plugin notices
 
 = 1.0.2 =
 * updated plugin meta
