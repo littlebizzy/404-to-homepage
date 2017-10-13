@@ -52,7 +52,6 @@ function ntfthp_pre_handle_404($preempt, $wp_query) {
  */
 add_action('wp', 'ntfthp_wp');
 function ntfthp_wp() {
-	if (!defined('WP_CRON')) define('WP_CRON', true);
 	if (is_404() && ntfthp_is_frontend()) {
 		require_once(NTFTHP_PATH.'/404-redirect.php');
 		NTFTHP_Redirect::go();
