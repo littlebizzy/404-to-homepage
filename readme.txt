@@ -100,6 +100,7 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 
 = 1.0.6 =
 * added filter to "skip" WP Admin, cron, and XML-RPC requests
+* updated recommended plugins
 
 = 1.0.5 =
 * updated recommended plugins
