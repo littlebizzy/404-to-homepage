@@ -27,12 +27,19 @@ define('NTFTHP_VERSION', '1.0.3');
 /* 404 hooks */
 
 /**
+ * Front-end function check
+ */
+function ntfthp_is_frontend() {
+	return is_admin()? false : !((defined('DOING_CRON') && DOING_CRON) || (defined('XMLRPC_REQUEST') && XMLRPC_REQUEST));
+}
+
+/**
  * Early method to detect 404 context
  * Minimum WP version: 4.5.0
  */
 add_filter('pre_handle_404', 'ntfthp_pre_handle_404', 0, 2);
 function ntfthp_pre_handle_404($preempt, $wp_query) {
-	if ($wp_query->is_404()) {
+	if ($wp_query->is_404() && ntfthp_is_frontend()) {
 		require_once(NTFTHP_PATH.'/404-redirect.php');
 		NTFTHP_Redirect::go();
 	}
@@ -45,7 +52,8 @@ function ntfthp_pre_handle_404($preempt, $wp_query) {
  */
 add_action('wp', 'ntfthp_wp');
 function ntfthp_wp() {
-	if (is_404()) {
+	if (!defined('WP_CRON')) define('WP_CRON', true);
+	if (is_404() && ntfthp_is_frontend()) {
 		require_once(NTFTHP_PATH.'/404-redirect.php');
 		NTFTHP_Redirect::go();
 	}
