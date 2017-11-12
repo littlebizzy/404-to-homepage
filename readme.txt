@@ -105,6 +105,10 @@ We released this plugin in response to our managed hosting clients asking for be
 
 No, it automatically adds a 404 header using WordPress filters/hooks.
 
+= After disabling this plugin, 404 pages are still redirecting? =
+
+This is usually caused by your browser cache. Simply clear your browser cache (temp files) and try again.
+
 = How can I change this plugin's settings? =
 
 This plugin does not have a settings page and is designed for speed and simplicity.
