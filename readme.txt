@@ -6,7 +6,7 @@ Requires at least: 4.4
 Tested up to: 4.9
 Requires PHP: 7.0
 Multisite support: No
-Stable tag: 1.0.8
+Stable tag: 1.0.9
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Prefix: NTFTHP
@@ -109,6 +109,16 @@ We invite you to check out a few premium plugins that our team has also produced
 * [SEO Genius](https://www.littlebizzy.com/plugins/seo-genius)
 * [Great Migration](https://www.littlebizzy.com/plugins/great-migration)
 
+#### Related Services ####
+
+The following paid services are available on a case-by-case basis to upstanding members of the WordPress community:
+
+* [SSL Setup](https://www.littlebizzy.com/services/ssl)
+* [DNSSEC Setup](https://www.littlebizzy.com/services/dnssec)
+* [G Suite Setup](https://www.littlebizzy.com/services/google-apps)
+* [SendGrid Setup](https://www.littlebizzy.com/services/sendgrid)
+* [MailGun Setup](https://www.littlebizzy.com/services/mailgun)
+
 #### Special Thanks ####
 
 We thank the following groups for their generous contributions to the WordPress community which have particularly benefited us in developing our own free plugins and paid services:
@@ -163,11 +173,14 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 
 == Changelog ==
 
+= 1.0.9 =
+* better support for `define('DISABLE_NAG_NOTICES', true);`
+
 = 1.0.8 =
 * tested with WP 4.9
 * updated plugin meta
 * updated recommended plugins
-* added support for `define('DISABLE_NAG_NOTICES', true);`
+* partial support for `define('DISABLE_NAG_NOTICES', true);`
 
 = 1.0.7 =
 * optimize plugin code
