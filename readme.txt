@@ -1,6 +1,7 @@
 === Redirect 404 To Homepage ===
 
 Contributors: littlebizzy
+Donate link: https://www.patreon.com/littlebizzy
 Tags: 404, errors, redirect, 301, homepage
 Requires at least: 4.4
 Tested up to: 4.9
