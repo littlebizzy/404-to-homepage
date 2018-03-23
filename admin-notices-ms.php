@@ -1,7 +1,7 @@
 <?php
 
 // Subpackage namespace
-namespace LittleBizzy\404ToHomepage;
+namespace LittleBizzy\FourZeroFourToHomepage;
 
 /**
  * Admin Notices MultiSite class
