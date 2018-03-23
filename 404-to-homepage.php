@@ -20,7 +20,7 @@ NTFTHP_Admin_Notices::instance(__FILE__);
  * Uncomment //return to disable this plugin on Multisite installs
  */
 require_once dirname(__FILE__).'/admin-notices-ms.php';
-if (false !== \LittleBizzy\404ToHomepage\Admin_Notices_MS::instance(__FILE__)) {
+if (false !== \LittleBizzy\FourZeroFourToHomepage\Admin_Notices_MS::instance(__FILE__)) {
 	//return;
 }
 
