@@ -7,7 +7,7 @@ Requires at least: 4.4
 Tested up to: 4.9
 Requires PHP: 7.0
 Multisite support: No
-Stable tag: 1.0.9
+Stable tag: 1.0.10
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Prefix: NTFTHP
@@ -18,9 +18,12 @@ Redirects all 404 (Not Found) errors to the homepage for a better user experienc
 
 Redirects all 404 (Not Found) errors to the homepage for a better user experience, less abuse from bots, and 100% elimination of Google GSC warnings.
 
+* [**Join our free Facebook group for support**](https://www.facebook.com/groups/littlebizzy/)
 * [Plugin Homepage](https://www.littlebizzy.com/plugins/404-to-homepage)
 * [Plugin GitHub](https://github.com/littlebizzy/404-to-homepage)
 * [SlickStack](https://slickstack.io)
+* [WP Lite Boilerplate](https://wplite.org)
+* [Starter Theme](https://starter.littlebizzy.com)
 
 #### The Long Version ####
 
@@ -71,17 +74,21 @@ This plugin was partially inspired either in "code or concept" by the open-sourc
 
 We invite you to check out a few other related free plugins that our team has also produced that you may find especially useful:
 
+
 * [404 To Homepage](https://wordpress.org/plugins/404-to-homepage-littlebizzy/)
 * [CloudFlare](https://wordpress.org/plugins/cf-littlebizzy/)
+* [Delete Expired Transients](https://wordpress.org/plugins/delete-expired-transients-littlebizzy/)
+* [Disable Admin-AJAX](https://wordpress.org/plugins/disable-admin-ajax-littlebizzy/)
 * [Disable Author Pages](https://wordpress.org/plugins/disable-author-pages-littlebizzy/)
 * [Disable Cart Fragments](https://wordpress.org/plugins/disable-cart-fragments-littlebizzy/)
 * [Disable Embeds](https://wordpress.org/plugins/disable-embeds-littlebizzy/)
 * [Disable Emojis](https://wordpress.org/plugins/disable-emojis-littlebizzy/)
 * [Disable Empty Trash](https://wordpress.org/plugins/disable-empty-trash-littlebizzy/)
 * [Disable Image Compression](https://wordpress.org/plugins/disable-image-compression-littlebizzy/)
+* [Disable jQuery Migrate](https://wordpress.org/plugins/disable-jq-migrate-littlebizzy/)
 * [Disable Search](https://wordpress.org/plugins/disable-search-littlebizzy/)
 * [Disable WooCommerce Status](https://wordpress.org/plugins/disable-wc-status-littlebizzy/)
-* [Disable WooCommerce Styles](https://wordpress.org/plugins/diable-wc-styles-littlebizzy/)
+* [Disable WooCommerce Styles](https://wordpress.org/plugins/disable-wc-styles-littlebizzy/)
 * [Disable XML-RPC](https://wordpress.org/plugins/disable-xml-rpc-littlebizzy/)
 * [Download Media](https://wordpress.org/plugins/download-media-littlebizzy/)
 * [Download Plugin](https://wordpress.org/plugins/download-plugin-littlebizzy/)
@@ -91,6 +98,7 @@ We invite you to check out a few other related free plugins that our team has al
 * [Force HTTPS](https://wordpress.org/plugins/force-https-littlebizzy/)
 * [Force Strong Hashing](https://wordpress.org/plugins/force-strong-hashing-littlebizzy/)
 * [Google Analytics](https://wordpress.org/plugins/ga-littlebizzy/)
+* [Header Cleanup](https://wordpress.org/plugins/header-cleanup-littlebizzy/)
 * [Index Autoload](https://wordpress.org/plugins/index-autoload-littlebizzy/)
 * [Maintenance Mode](https://wordpress.org/plugins/maintenance-mode-littlebizzy/)
 * [Profile Change Alerts](https://wordpress.org/plugins/profile-change-alerts-littlebizzy/)
@@ -105,31 +113,24 @@ We invite you to check out a few other related free plugins that our team has al
 
 We invite you to check out a few premium plugins that our team has also produced that you may find especially useful:
 
-* [Purge Them All](https://www.littlebizzy.com/plugins/purge-them-all)
 * [Speed Demon](https://www.littlebizzy.com/plugins/speed-demon)
 * [SEO Genius](https://www.littlebizzy.com/plugins/seo-genius)
 * [Great Migration](https://www.littlebizzy.com/plugins/great-migration)
-
-#### Related Services ####
-
-The following paid services are available on a case-by-case basis to upstanding members of the WordPress community:
-
-* [SSL Setup](https://www.littlebizzy.com/services/ssl)
-* [DNSSEC Setup](https://www.littlebizzy.com/services/dnssec)
-* [G Suite Setup](https://www.littlebizzy.com/services/google-apps)
-* [SendGrid Setup](https://www.littlebizzy.com/services/sendgrid)
-* [MailGun Setup](https://www.littlebizzy.com/services/mailgun)
+* [Security Guard](https://www.littlebizzy.com/plugins/security-guard)
+* [Genghis Khan](https://www.littlebizzy.com/plugins/genghis-khan)
 
 #### Special Thanks ####
 
 We thank the following groups for their generous contributions to the WordPress community which have particularly benefited us in developing our own free plugins and paid services:
 
 * [Automattic](https://automattic.com)
+* [Brad Touesnard](https://bradt.ca)
 * [Daniel Auener](http://www.danielauener.com)
 * [Delicious Brains](https://deliciousbrains.com)
 * [Greg Rickaby](https://gregrickaby.com)
 * [Matt Mullenweg](https://ma.tt)
 * [Mika Epstein](https://halfelf.org)
+* [Mike Garrett](https://mikengarrett.com)
 * [Samuel Wood](http://ottopress.com)
 * [Scott Reilly](http://coffee2code.com)
 * [Jan Dembowski](https://profiles.wordpress.org/jdembowski)
@@ -141,6 +142,7 @@ We thank the following groups for their generous contributions to the WordPress 
 * [Rahul Bansal](https://profiles.wordpress.org/rahul286)
 * [Roots](https://roots.io)
 * [rtCamp](https://rtcamp.com)
+* [Ryan Hellyer](https://geek.hellyer.kiwi)
 * [WP Chat](https://wpchat.com)
 * [WP Tavern](https://wptavern.com)
 
@@ -174,6 +176,10 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 
 == Changelog ==
 
+= 1.0.10 =
+* added warning for Multisite installations
+* updated recommended plugins
+
 = 1.0.9 =
 * better support for `define('DISABLE_NAG_NOTICES', true);`
 
@@ -184,12 +190,12 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 * partial support for `define('DISABLE_NAG_NOTICES', true);`
 
 = 1.0.7 =
-* optimize plugin code
+* optimized plugin code
 * updated recommended plugins
 * added rating request
 
 = 1.0.6 =
-* added filter to "skip" WP Admin, cron, and XML-RPC requests
+* added filter to "skip" WP Admin, WP Cron, and XML-RPC requests
 * updated recommended plugins
 
 = 1.0.5 =
@@ -203,7 +209,7 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 
 = 1.0.2 =
 * updated plugin meta
-* tested with WordPress 4.8
+* tested with WP 4.8
 
 = 1.0.1 =
 * updated plugin meta
