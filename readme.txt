@@ -7,7 +7,7 @@ Requires at least: 4.4
 Tested up to: 4.9
 Requires PHP: 7.0
 Multisite support: No
-Stable tag: 1.0.10
+Stable tag: 1.0.11
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Prefix: NTFTHP
@@ -176,6 +176,9 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 
 == Changelog ==
 
+= 1.0.11 =
+* updated plugin meta
+
 = 1.0.10 =
 * added warning for Multisite installations
 * updated recommended plugins
@@ -185,14 +188,14 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 
 = 1.0.8 =
 * tested with WP 4.9
+* partial support for `define('DISABLE_NAG_NOTICES', true);`
 * updated plugin meta
 * updated recommended plugins
-* partial support for `define('DISABLE_NAG_NOTICES', true);`
 
 = 1.0.7 =
 * optimized plugin code
+* added rating request notice
 * updated recommended plugins
-* added rating request
 
 = 1.0.6 =
 * added filter to "skip" WP Admin, WP Cron, and XML-RPC requests
@@ -202,17 +205,18 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 * updated recommended plugins
 
 = 1.0.4 =
-* minor code tweaks
+* optimized plugin code
 
 = 1.0.3 =
 * added recommended plugin notices
 
 = 1.0.2 =
-* updated plugin meta
 * tested with WP 4.8
+* updated plugin meta
 
 = 1.0.1 =
 * updated plugin meta
 
 = 1.0.0 =
 * initial release
+* tested with PHP 7.0
