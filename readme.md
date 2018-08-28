@@ -6,6 +6,8 @@ Redirects all 404 (Not Found) errors to the homepage for a better user experienc
 * [Download (WordPress.org)](https://wordpress.org/plugins/404-to-homepage-littlebizzy)
 * [Free Facebook group](https://www.facebook.com/groups/littlebizzy/)
 
+### Support issues
+
 *Please do not submit Pull Requests. Instead, kindly create a new Issue with relevant information if you are an experienced developer, otherwise post your comments in our free Facebook group.*
 
 ***No emails, please! Thank you.***
