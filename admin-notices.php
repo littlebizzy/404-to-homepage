@@ -34,6 +34,11 @@ final class NTFTHP_Admin_Notices {
 	private $days_dismissing_suggestions = 180; // 6 months reappear
 	private $suggestions_message = '%plugin% recommends the following free plugins:';
 	private $suggestions = array(
+		'speed-demon-littlebizzy' => array(
+			'name' => 'Speed Demon',
+			'desc' => 'A powerful bundle of lightweight tweaks that drastically improve the loading speed of WordPress by reducing bloat and improving overall efficiency.',
+			'filename' => 'speed-demon.php',
+		),
 		'force-https-littlebizzy' => array(
 			'name' => 'Force HTTPS',
 			'desc' => 'Redirects all HTTP requests to the HTTPS version and fixes all insecure static resources without altering the database (also works with CloudFlare).',
@@ -49,20 +54,10 @@ final class NTFTHP_Admin_Notices {
 			'desc' => 'Completely disables author archives which then become 404 errors, converts author links to homepage links, and works with or without fancy permalinks.',
 			'filename' => 'disable-author-pages.php',
 		),
-		'disable-search-littlebizzy' => array(
-			'name' => 'Disable Search',
-			'desc' => 'Completely disables the built-in WordPress search function to prevent snoopers or bots from querying your database or slowing down your website.',
-			'filename' => 'disable-search.php',
-		),
 		'duplicate-post-littlebizzy' => array(
 			'name' => 'Duplicate Post',
 			'desc' => 'Easily duplicate (clone) any post, custom post, or page which are then saved in Draft mode, saving you tons of time and headache (no settings page).',
 			'filename' => 'duplicate-post.php',
-		),
-		'server-status-littlebizzy' => array(
-			'name' => 'Server Status',
-			'desc' => 'Useful statistics about the server OS, CPU, RAM, load average, memory usage, IP address, hostname, timezone, disk space, PHP, MySQL, caches, etc.',
-			'filename' => 'server-status.php',
 		),
 	);
 
