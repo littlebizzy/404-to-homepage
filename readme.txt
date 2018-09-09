@@ -7,7 +7,7 @@ Requires at least: 4.4
 Tested up to: 4.9
 Requires PHP: 7.0
 Multisite support: No
-Stable tag: 1.0.11
+Stable tag: 1.0.12
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Prefix: NTFTHP
@@ -176,6 +176,9 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 
 == Changelog ==
 
+= 1.0.12 =
+* updated recommended plugins
+
 = 1.0.11 =
 * updated plugin meta
 
@@ -184,13 +187,13 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 * updated recommended plugins
 
 = 1.0.9 =
-* better support for `define('DISABLE_NAG_NOTICES', true);`
+* better support for `DISABLE_NAG_NOTICES`
 
 = 1.0.8 =
 * tested with WP 4.9
-* partial support for `define('DISABLE_NAG_NOTICES', true);`
-* updated plugin meta
+* partial support for `DISABLE_NAG_NOTICES`
 * updated recommended plugins
+* updated plugin meta
 
 = 1.0.7 =
 * optimized plugin code
@@ -208,7 +211,7 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 * optimized plugin code
 
 = 1.0.3 =
-* added recommended plugin notices
+* added recommended plugins notice
 
 = 1.0.2 =
 * tested with WP 4.8
