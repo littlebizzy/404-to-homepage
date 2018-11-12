@@ -3,7 +3,7 @@
 Redirects all 404 (Not Found) errors to the homepage for a better user experience, less abuse from bots, and 100% elimination of Google GSC warnings.
 
 * [Plugin homepage](https://www.littlebizzy.com/plugins/404-to-homepage)
-* [Download (WordPress.org)](https://wordpress.org/plugins/404-to-homepage-littlebizzy)
+* [Download (WordPress.org)](https://wordpress.org/plugins/404-to-homepage-littlebizzy/)
 * [Free Facebook group](https://www.facebook.com/groups/littlebizzy/)
 
 ### Support issues
