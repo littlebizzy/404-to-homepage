@@ -2,10 +2,6 @@
 
 Redirects all 404 (Not Found) errors to the homepage for a better user experience, less abuse from bots, and 100% elimination of Google GSC warnings.
 
-# Disable Pinging
-
-Completely disables the Update Services feature in WordPress to stop the pinging of third party services (an outdated technology) and reduce bloat.
-
 * [Plugin Homepage (LittleBizzy.com)](https://www.littlebizzy.com/plugins/404-to-homepage)
 * [Free Facebook Group](https://www.facebook.com/groups/littlebizzy/)
 
