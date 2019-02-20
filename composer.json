@@ -1,0 +1,16 @@
+{
+    "name": "littlebizzy/404-to-homepage",
+    "type": "wordpress-plugin",
+    "license": "GPLv3",
+    "homepage": "https://www.littlebizzy.com/plugins/404-to-homepage",
+    "description": "Redirects all 404 (Not Found) errors to the homepage for a better user experience, less abuse from bots, and 100% elimination of Google GSC warnings.",
+    "keywords": ["wordpress","plugin","404","not found","errors","redirect","301","homepage","home","url","seo"],
+    "support": {
+        "issues": "https://github.com/littlebizzy/404-to-homepage/issues",
+        "forum": "https://www.littlebizzy.com/members"
+    }
+    "require": {
+        "php": "^7.2",
+        "composer/installers": "~1.0"
+    }
+}
