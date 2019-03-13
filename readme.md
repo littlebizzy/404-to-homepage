@@ -2,13 +2,18 @@
 
 Redirects all 404 (Not Found) errors to the homepage for a better user experience, less abuse from bots, and 100% elimination of Google GSC warnings.
 
-* [Plugin Homepage (LittleBizzy.com)](https://www.littlebizzy.com/plugins/404-to-homepage)
-* [Free Facebook Group](https://www.facebook.com/groups/littlebizzy/)
+* [Plugin Homepage](https://www.littlebizzy.com/plugins/404-to-homepage)
+* [Download Latest Version (ZIP)](https://github.com/littlebizzy/404-to-homepage/archive/1.1.0.zip)
+* [**Become A LittleBizzy.com Member Today!**](https://www.littlebizzy.com/members)
 
 ### Defined Constants
 
     /* Plugin Meta */
-    define('DISABLE_NAG_NOTICES', true);
+    define('AUTOMATIC_UPDATE_PLUGINS', false); // default = false
+    define('DISABLE_NAG_NOTICES', true); // default = true
+    
+    /* 404 To Homepage Functions */
+    define('404_TO_HOMEPAGE', true); // default = true
 
 ### Compatibility
 
