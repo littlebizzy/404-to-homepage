@@ -25,32 +25,32 @@ add_filter( 'gu_override_dot_org', function( $overrides ) {
 
 // function to handle 404 redirection
 function redirect_404_to_homepage() {
-    clear_headers();
-    wp_safe_redirect( home_url(), 301 );
+    clear_headers();  // attempt to clear headers
+    wp_safe_redirect( home_url(), 301 );  // try to redirect, even if headers are sent
     exit;
 }
 
 // function to remove any existing headers
 function clear_headers() {
-    // Get headers (headers_list() always returns an array)
+    // get headers (headers_list() always returns an array)
     $headers = headers_list();
 
-    // Early return if no headers exist
+    // early return if no headers exist
     if ( empty( $headers ) ) {
         return;
     }
 
-    // Check once if the header_remove function exists
+    // check once if the header_remove function exists
     $can_remove_header = function_exists( 'header_remove' );
 
     foreach ( $headers as $header ) {
-        // Ensure the header contains ':' to split it correctly
+        // ensure the header contains ':' to split it correctly
         if ( strpos( $header, ':' ) !== false ) {
-            // Manually trim the header field (name part of the header)
+            // manually trim the header field (name part of the header)
             $parts = explode( ':', $header, 2 );
             $header_field = trim( $parts[0] );
 
-            // Remove or reset the header based on availability of header_remove function
+            // remove or reset the header based on availability of header_remove function
             if ( $can_remove_header ) {
                 header_remove( $header_field );
             } else {
