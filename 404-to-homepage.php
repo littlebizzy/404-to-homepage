@@ -32,14 +32,27 @@ function redirect_404_to_homepage() {
 
 // function to remove any existing headers
 function clear_headers() {
-    $headers = @headers_list();
+    // Get headers (headers_list() always returns an array)
+    $headers = headers_list();
     
-    if ( ! empty( $headers ) && is_array( $headers ) ) {
-        $has_header_remove = function_exists( 'header_remove' );
+    if ( ! empty( $headers ) ) {
+        // Check once if the header_remove function exists
+        $can_remove_header = function_exists( 'header_remove' );
         
         foreach ( $headers as $header ) {
-            list( $key, $value ) = array_map( 'trim', explode( ':', $header, 2 ) );
-            $has_header_remove ? @header_remove( $key ) : @header( $key . ':' );
+            // Ensure the header contains ':' to split it correctly
+            if ( strpos( $header, ':' ) !== false ) {
+                // Manually trim the header name and value
+                $parts = explode( ':', $header, 2 );
+                $header_name  = trim( $parts[0] );
+                
+                // Remove or reset the header based on availability of header_remove function
+                if ( $can_remove_header ) {
+                    header_remove( $header_name );
+                } else {
+                    header( $header_name . ':' );
+                }
+            }
         }
     }
 }
