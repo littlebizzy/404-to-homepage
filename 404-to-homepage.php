@@ -33,11 +33,13 @@ function redirect_404_to_homepage() {
 // function to remove any existing headers
 function clear_headers() {
     $headers = @headers_list();
-    if (!empty($headers) && is_array($headers)) {
-        $has_header_remove = function_exists('header_remove');
-        foreach ($headers as $header) {
-            list($key, $value) = array_map('trim', explode(':', $header, 2));
-            $has_header_remove ? @header_remove($key) : @header($key . ':');
+    
+    if ( ! empty( $headers ) && is_array( $headers ) ) {
+        $has_header_remove = function_exists( 'header_remove' );
+        
+        foreach ( $headers as $header ) {
+            list( $key, $value ) = array_map( 'trim', explode( ':', $header, 2 ) );
+            $has_header_remove ? @header_remove( $key ) : @header( $key . ':' );
         }
     }
 }
