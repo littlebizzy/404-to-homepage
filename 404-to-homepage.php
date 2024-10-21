@@ -26,7 +26,7 @@ add_filter( 'gu_override_dot_org', function( $overrides ) {
 // function to handle 404 redirection
 function redirect_404_to_homepage() {
     clear_headers();
-    wp_redirect(home_url(), 301);
+    wp_safe_redirect( home_url(), 301 );
     exit;
 }
 
