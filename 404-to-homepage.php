@@ -8,7 +8,6 @@ Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: 404-to-homepage
 GitHub Plugin URI: littlebizzy/404-to-homepage
 Primary Branch: master
 */
@@ -24,25 +23,21 @@ add_filter( 'gu_override_dot_org', function( $overrides ) {
     return $overrides;
 }, 999 );
 
-// class to handle redirection with header cleaning
-class NTFTHP_Redirect {
+// function to handle 404 redirection
+function redirect_404_to_homepage() {
+    clear_headers();
+    wp_redirect(home_url(), 301);
+    exit;
+}
 
-    // function to handle redirection
-    public static function go() {
-        self::remove_headers();
-        wp_redirect(home_url(), 301);
-        die;
-    }
-
-    // function to remove any existing headers
-    private static function remove_headers() {
-        $headers = @headers_list();
-        if (!empty($headers) && is_array($headers)) {
-            $by_function = function_exists('header_remove');
-            foreach ($headers as $header) {
-                list($k, $v) = array_map('trim', explode(':', $header, 2));
-                $by_function ? @header_remove($k) : @header($k . ':');
-            }
+// function to remove any existing headers
+function clear_headers() {
+    $headers = @headers_list();
+    if (!empty($headers) && is_array($headers)) {
+        $has_header_remove = function_exists('header_remove');
+        foreach ($headers as $header) {
+            list($key, $value) = array_map('trim', explode(':', $header, 2));
+            $has_header_remove ? @header_remove($key) : @header($key . ':');
         }
     }
 }
@@ -50,7 +45,7 @@ class NTFTHP_Redirect {
 // hook into template_redirect to trigger the 404 redirection
 add_action('template_redirect', function() {
     if (is_404()) {
-        NTFTHP_Redirect::go();
+        redirect_404_to_homepage();
     }
 });
 
