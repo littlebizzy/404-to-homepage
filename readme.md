@@ -4,6 +4,16 @@ Redirects 404 errors to homepage
 
 ## Changelog
 
+### 2.0.0
+- completely refactored code into single file with WordPress coding standards and no PHP classes
+- support for Git Updater
+- disables WordPress.org updates
+- greatly expanded and improved "exclusion" rules for WP Admin, WP Cron, XML-RPC, REST API, Admin AJAX, WP-CLI, and non-frontend URL patterns
+- skips trying to redirect if headers already sent to avoid conflicts (rare)
+- `clear_headers` function refactored and improved (attempts to clear any existing headers before 301 redirecting)
+- supports PHP 7.0 to PHP 8.3
+- supports Multisite
+
 ### 1.1.0
 - tested with WP 5.0
 - updated plugin meta
