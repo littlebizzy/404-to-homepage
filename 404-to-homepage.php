@@ -33,25 +33,20 @@ function redirect_404_to_homepage() {
     exit;
 }
 
-// function to remove any existing headers
+// function to clear any existing headers
 function clear_headers() {
-    // check if the header_remove function exists
-    if ( ! function_exists( 'header_remove' ) ) {
-        return;  // no need to proceed if header_remove is unavailable
-    }
-
     // get headers from headers_list()
     foreach ( headers_list() as $header ) {
-        // skip if header is malformed
+        // skip malformed headers without ':'
         if ( strpos( $header, ':' ) === false ) {
             continue;
         }
 
-        // manually trim the header field
-        $header_field = trim( explode( ':', $header, 2 )[0] );
+        // split header into field and value
+        list( $header_field, ) = explode( ':', $header, 2 );
 
-        // remove the header
-        header_remove( $header_field );
+        // remove the header after trimming
+        header_remove( trim( $header_field ) );
     }
 }
 
