@@ -25,6 +25,11 @@ add_filter( 'gu_override_dot_org', function( $overrides ) {
 
 // function to handle 404 redirection
 function redirect_404_to_homepage() {
+    // skip WP Admin, WP Cron, XML-RPC, REST API, AJAX, and WP-CLI requests
+    if ( is_admin() || defined( 'DOING_CRON' ) || defined( 'XMLRPC_REQUEST' ) || defined( 'REST_REQUEST' ) || defined( 'DOING_AJAX' ) || defined( 'WP_CLI' ) ) {
+        return;
+    }
+
     if ( headers_sent() ) {
         return;  // cannot redirect if headers are already sent
     }
