@@ -34,34 +34,37 @@ function redirect_404_to_homepage() {
 function clear_headers() {
     // Get headers (headers_list() always returns an array)
     $headers = headers_list();
-    
-    if ( ! empty( $headers ) ) {
-        // Check once if the header_remove function exists
-        $can_remove_header = function_exists( 'header_remove' );
-        
-        foreach ( $headers as $header ) {
-            // Ensure the header contains ':' to split it correctly
-            if ( strpos( $header, ':' ) !== false ) {
-                // Manually trim the header name and value
-                $parts = explode( ':', $header, 2 );
-                $header_name  = trim( $parts[0] );
-                
-                // Remove or reset the header based on availability of header_remove function
-                if ( $can_remove_header ) {
-                    header_remove( $header_name );
-                } else {
-                    header( $header_name . ':' );
-                }
+
+    // Early return if no headers exist
+    if ( empty( $headers ) ) {
+        return;
+    }
+
+    // Check once if the header_remove function exists
+    $can_remove_header = function_exists( 'header_remove' );
+
+    foreach ( $headers as $header ) {
+        // Ensure the header contains ':' to split it correctly
+        if ( strpos( $header, ':' ) !== false ) {
+            // Manually trim the header field (name part of the header)
+            $parts = explode( ':', $header, 2 );
+            $header_field = trim( $parts[0] );
+
+            // Remove or reset the header based on availability of header_remove function
+            if ( $can_remove_header ) {
+                header_remove( $header_field );
+            } else {
+                header( $header_field . ':' );
             }
         }
     }
 }
 
 // hook into template_redirect to trigger the 404 redirection
-add_action('template_redirect', function() {
-    if (is_404()) {
+add_action( 'template_redirect', function() {
+    if ( is_404() ) {
         redirect_404_to_homepage();
     }
-});
+} );
 
 // Ref: ChatGPT
