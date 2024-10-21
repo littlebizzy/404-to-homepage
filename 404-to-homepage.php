@@ -25,38 +25,33 @@ add_filter( 'gu_override_dot_org', function( $overrides ) {
 
 // function to handle 404 redirection
 function redirect_404_to_homepage() {
+    if ( headers_sent() ) {
+        return;  // cannot redirect if headers are already sent
+    }
     clear_headers();  // attempt to clear headers
-    wp_safe_redirect( home_url(), 301 );  // try to redirect, even if headers are sent
+    wp_safe_redirect( home_url(), 301 );  // perform 301 redirect to homepage
     exit;
 }
 
 // function to remove any existing headers
 function clear_headers() {
-    // get headers (headers_list() always returns an array)
-    $headers = headers_list();
-
-    // early return if no headers exist
-    if ( empty( $headers ) ) {
-        return;
+    // check if the header_remove function exists
+    if ( ! function_exists( 'header_remove' ) ) {
+        return;  // no need to proceed if header_remove is unavailable
     }
 
-    // check once if the header_remove function exists
-    $can_remove_header = function_exists( 'header_remove' );
-
-    foreach ( $headers as $header ) {
-        // ensure the header contains ':' to split it correctly
-        if ( strpos( $header, ':' ) !== false ) {
-            // manually trim the header field (name part of the header)
-            $parts = explode( ':', $header, 2 );
-            $header_field = trim( $parts[0] );
-
-            // remove or reset the header based on availability of header_remove function
-            if ( $can_remove_header ) {
-                header_remove( $header_field );
-            } else {
-                header( $header_field . ':' );
-            }
+    // get headers from headers_list()
+    foreach ( headers_list() as $header ) {
+        // skip if header is malformed
+        if ( strpos( $header, ':' ) === false ) {
+            continue;
         }
+
+        // manually trim the header field
+        $header_field = trim( explode( ':', $header, 2 )[0] );
+
+        // remove the header
+        header_remove( $header_field );
     }
 }
 
