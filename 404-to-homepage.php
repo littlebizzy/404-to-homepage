@@ -33,11 +33,11 @@ function redirect_404_to_homepage() {
     exit;
 }
 
-// function to clear any existing headers
+// function to clear all existing headers
 function clear_headers() {
     // get headers from headers_list()
     foreach ( headers_list() as $header ) {
-        // skip malformed headers without ':'
+        // skip malformed headers
         if ( strpos( $header, ':' ) === false ) {
             continue;
         }
