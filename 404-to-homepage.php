@@ -3,7 +3,8 @@
 Plugin Name: 404 To Homepage
 Plugin URI: https://www.littlebizzy.com/plugins/404-to-homepage
 Description: Redirects 404 errors to homepage
-Version: 2.0.0
+Version: 2.0.1
+Requires PHP: 7.0
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPLv3
