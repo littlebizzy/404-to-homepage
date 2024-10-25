@@ -4,6 +4,9 @@ Redirects 404 errors to homepage
 
 ## Changelog
 
+### 2.0.1
+- added `Requires PHP` plugin header
+
 ### 2.0.0
 - completely refactored code into single file with WordPress coding standards and no PHP classes
 - support for Git Updater
