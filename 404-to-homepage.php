@@ -29,27 +29,45 @@ add_filter( 'gu_override_dot_org', function( $overrides ) {
 
 // function to handle 404 redirection
 function redirect_404_to_homepage() {
-    // skip WP Admin, WP Cron, XML-RPC, REST API, AJAX, WP-CLI, and specific URL patterns
-    if ( is_admin() || defined( 'DOING_CRON' ) || defined( 'XMLRPC_REQUEST' ) || defined( 'REST_REQUEST' ) || defined( 'DOING_AJAX' ) || defined( 'WP_CLI' ) || 
-         strpos( $_SERVER['REQUEST_URI'], '/wp-admin/' ) !== false || 
-         strpos( $_SERVER['REQUEST_URI'], '/wp-includes/' ) !== false || 
-         strpos( $_SERVER['REQUEST_URI'], '/wp-content/' ) !== false || 
-         strpos( $_SERVER['REQUEST_URI'], '/wp-json/' ) !== false || 
-         strpos( $_SERVER['REQUEST_URI'], '/.well-known/' ) !== false || 
-         ( strpos( basename( $_SERVER['REQUEST_URI'] ), 'wp-' ) === 0 && substr( $_SERVER['REQUEST_URI'], -4 ) === '.php' ) ||  // wildcard for wp-*.php files
-         strpos( $_SERVER['REQUEST_URI'], '/robots.txt' ) !== false || 
-         strpos( $_SERVER['REQUEST_URI'], '/ads.txt' ) !== false ||  
-         strpos( $_SERVER['REQUEST_URI'], '/security.txt' ) !== false || 
-         strpos( $_SERVER['REQUEST_URI'], '/humans.txt' ) !== false || 
-         strpos( $_SERVER['REQUEST_URI'], '?s=' ) !== false ) {  // search results
+    // skip for admin, cron, xmlrpc, rest, ajax, or wp-cli requests
+    if ( is_admin() || defined( 'DOING_CRON' ) || defined( 'XMLRPC_REQUEST' ) || defined( 'REST_REQUEST' ) || defined( 'DOING_AJAX' ) || defined( 'WP_CLI' ) ) {
+        return;
+    }
+
+    $uri = $_SERVER['REQUEST_URI'];
+
+    // skip specific url patterns
+    $skip_patterns = array(
+        '/wp-admin/',
+        '/wp-includes/',
+        '/wp-content/',
+        '/wp-json/',
+        '/.well-known/',
+        '/robots.txt',
+        '/ads.txt',
+        '/security.txt',
+        '/humans.txt',
+        '?s='
+    );
+
+    foreach ( $skip_patterns as $pattern ) {
+        if ( strpos( $uri, $pattern ) !== false ) {
+            return;
+        }
+    }
+
+    // skip wildcard for wp-*.php files
+    $basename = basename( $uri );
+    if ( pathinfo( $basename, PATHINFO_EXTENSION ) === 'php' && strpos( $basename, 'wp-' ) === 0 ) {
         return;
     }
 
     if ( headers_sent() ) {
-        return;  // cannot redirect if headers are already sent
+        return;
     }
-    clear_headers();  // attempt to clear headers
-    wp_safe_redirect( home_url(), 301 );  // perform 301 redirect to homepage
+
+    clear_headers();
+    wp_safe_redirect( home_url(), 301 );
     exit;
 }
 
