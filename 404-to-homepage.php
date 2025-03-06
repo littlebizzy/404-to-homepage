@@ -3,14 +3,17 @@
 Plugin Name: 404 To Homepage
 Plugin URI: https://www.littlebizzy.com/plugins/404-to-homepage
 Description: Redirects 404 errors to homepage
-Version: 2.0.1
+Version: 2.0.2
 Requires PHP: 7.0
+Tested up to: 6.7
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Update URI: false
 GitHub Plugin URI: littlebizzy/404-to-homepage
 Primary Branch: master
+Text Domain: 404-to-homepage
 */
 
 // prevent direct access
@@ -18,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-// disable wordpress.org updates for this plugin
+// override wordpress.org with git updater
 add_filter( 'gu_override_dot_org', function( $overrides ) {
     $overrides[] = '404-to-homepage/404-to-homepage.php';
     return $overrides;
@@ -52,18 +55,9 @@ function redirect_404_to_homepage() {
 
 // function to clear all existing headers
 function clear_headers() {
-    // get headers from headers_list()
     foreach ( headers_list() as $header ) {
-        // skip malformed headers
-        if ( strpos( $header, ':' ) === false ) {
-            continue;
-        }
-
-        // split header into field and value
-        list( $header_field, ) = explode( ':', $header, 2 );
-
-        // remove the header after trimming
-        header_remove( trim( $header_field ) );
+        $header_name = explode( ':', $header, 2 )[0];
+        header_remove( $header_name );
     }
 }
 
