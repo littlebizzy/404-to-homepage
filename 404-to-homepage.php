@@ -29,11 +29,12 @@ add_filter( 'gu_override_dot_org', function( $overrides ) {
 
 // function to handle 404 redirection
 function redirect_404_to_homepage() {
-    // skip for admin, cron, xmlrpc, rest, ajax, or wp-cli requests
-    if ( is_admin() || defined( 'DOING_CRON' ) || defined( 'XMLRPC_REQUEST' ) || defined( 'REST_REQUEST' ) || defined( 'DOING_AJAX' ) || defined( 'WP_CLI' ) ) {
+    // skip for wp-cli, cron, admin, ajax, xmlrpc, or rest requests
+    if ( defined( 'WP_CLI' ) || defined( 'DOING_CRON' ) || is_admin() || defined( 'DOING_AJAX' ) || defined( 'XMLRPC_REQUEST' ) || defined( 'REST_REQUEST' ) ) {
         return;
     }
 
+    // get the current request uri
     $uri = $_SERVER['REQUEST_URI'];
 
     // skip specific url patterns
@@ -47,6 +48,9 @@ function redirect_404_to_homepage() {
         '/ads.txt',
         '/security.txt',
         '/humans.txt',
+        '/favicon.ico',
+        '/sitemap.xml',
+        '/wp-sitemap.xml',
         '?s='
     );
 
