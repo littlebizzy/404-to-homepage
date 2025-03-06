@@ -4,6 +4,15 @@ Redirects 404 errors to homepage
 
 ## Changelog
 
+### 2.1.0
+- optimized request skipping logic with `$skip_patterns` array
+- refactored `clear_headers()` for efficiency
+- added `/favicon.ico`, `/sitemap.xml`, `/wp-sitemap.xml` to exclusions
+- added `Tested up to` plugin header
+- added `Update URI` plugin header
+- added `Text Domain` plugin header
+- minor performance and code structure improvements
+
 ### 2.0.1
 - added `Requires PHP` plugin header
 
