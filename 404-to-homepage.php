@@ -74,8 +74,7 @@ function redirect_404_to_homepage() {
 // function to clear all existing headers
 function clear_headers() {
     foreach ( headers_list() as $header ) {
-        $header_name = explode( ':', $header, 2 )[0];
-        header_remove( $header_name );
+        header_remove( strtok( $header, ':' ) );
     }
 }
 
